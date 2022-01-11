@@ -1,0 +1,71 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Filehost",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "heart.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Age",
+				"type": "String"
+			},
+			{
+				"name": "Sex",
+				"type": "String"
+			},
+			{
+				"name": "ChestPainType",
+				"type": "String"
+			},
+			{
+				"name": "RestingBP",
+				"type": "String"
+			},
+			{
+				"name": "Cholesterol",
+				"type": "String"
+			},
+			{
+				"name": "FastingBS",
+				"type": "String"
+			},
+			{
+				"name": "RestingECG",
+				"type": "String"
+			},
+			{
+				"name": "MaxHR",
+				"type": "String"
+			},
+			{
+				"name": "ExerciseAngina",
+				"type": "String"
+			},
+			{
+				"name": "Oldpeak",
+				"type": "String"
+			},
+			{
+				"name": "ST_Slope",
+				"type": "String"
+			},
+			{
+				"name": "HeartDisease",
+				"type": "String"
+			}
+		]
+	}
+}
