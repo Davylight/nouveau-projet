@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Mon-test-DF"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"FileServer1_password": {
+			"value": ""
+		},
+		"Filehost_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://datalakegen110122.dfs.core.windows.net"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"value": "C:\\Users\\Fitec\\Downloads"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"value": "Fitec"
+		},
+		"Filehost_properties_typeProperties_host": {
+			"value": "C:\\Users\\Fitec\\Downloads"
+		},
+		"Filehost_properties_typeProperties_userId": {
+			"value": "Fitec"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
