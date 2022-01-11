@@ -1,0 +1,17 @@
+{
+	"name": "Filehost",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\Users\\Fitec\\Downloads",
+			"userId": "Fitec",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIzOTM3ZWFiNy04MmI1LTQ4NjQtOTdiYS1hZmE0NmEwM2Y2ZDYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "selfhostintegration",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
