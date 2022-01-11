@@ -1,0 +1,14 @@
+{
+	"name": "FileServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "crise cardiaque",
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\Users\\Fitec\\Downloads",
+			"userId": "Fitec",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDJEMTZBNzg5LTlFNkUtNDM0Ni1BMkJELTMyNjQ3MjQ0OEJEQ182YjFmMDYwNS0xM2JjLTRhY2EtYTM3MC0xNjc5MTJiZWY1NzUiDQp9"
+		}
+	}
+}
