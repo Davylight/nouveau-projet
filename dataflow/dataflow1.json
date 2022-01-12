@@ -6,15 +6,19 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText1",
+						"referenceName": "DelimitedTextgen1",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
-			"script": "source(output(\n\t\tAge as string,\n\t\tSex as string,\n\t\tChestPainType as string,\n\t\tRestingBP as string,\n\t\tCholesterol as string,\n\t\tFastingBS as string,\n\t\tRestingECG as string,\n\t\tMaxHR as string,\n\t\tExerciseAngina as string,\n\t\tOldpeak as string,\n\t\tST_Slope as string,\n\t\tHeartDisease as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1"
+			"transformations": [
+				{
+					"name": "Filtrer1"
+				}
+			],
+			"script": "source(output(\n\t\tAge as short,\n\t\tSex as string,\n\t\tCholesterol as short,\n\t\tRestingECG as string,\n\t\tOldpeak as double,\n\t\tHeartDisease as boolean\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 filter(Age>=40) ~> Filtrer1"
 		}
 	}
 }

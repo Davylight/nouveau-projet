@@ -1,0 +1,72 @@
+{
+	"name": "DelimitedTextgen1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "heartfull.csv",
+				"container": "lakeconteneur"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "40",
+				"type": "String"
+			},
+			{
+				"name": "M",
+				"type": "String"
+			},
+			{
+				"name": "ATA",
+				"type": "String"
+			},
+			{
+				"name": "140",
+				"type": "String"
+			},
+			{
+				"name": "289",
+				"type": "String"
+			},
+			{
+				"name": "05",
+				"type": "String"
+			},
+			{
+				"name": "Normal",
+				"type": "String"
+			},
+			{
+				"name": "172",
+				"type": "String"
+			},
+			{
+				"name": "N",
+				"type": "String"
+			},
+			{
+				"name": "09",
+				"type": "String"
+			},
+			{
+				"name": "Up",
+				"type": "String"
+			},
+			{
+				"name": "011",
+				"type": "String"
+			}
+		]
+	}
+}

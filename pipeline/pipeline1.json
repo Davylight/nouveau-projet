@@ -29,19 +29,223 @@
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobStorageWriteSettings"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".txt"
+							"fileExtension": ".csv"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Age",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "Age",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "Sex",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Sex",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Cholesterol",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Cholesterol",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "RestingECG",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RestingECG",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Oldpeak",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Oldpeak",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HeartDisease",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "HeartDisease",
+									"type": "Boolean"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
 						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DelimitedTextgen1",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy data2",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "dataflow1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".csv"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Age",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Age",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Sex",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sex",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Cholesterol",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cholesterol",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "RestingECG",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RestingECG",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Oldpeak",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Oldpeak",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HeartDisease",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "HeartDisease",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DelimitedTextgen1",
 						"type": "DatasetReference"
 					}
 				],
@@ -53,7 +257,7 @@
 				]
 			},
 			{
-				"name": "Data flow1",
+				"name": "dataflow1",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [
 					{
@@ -84,6 +288,12 @@
 				}
 			}
 		],
+		"parameters": {
+			"attention": {
+				"type": "string",
+				"defaultValue": "bonne"
+			}
+		},
 		"annotations": []
 	}
 }
