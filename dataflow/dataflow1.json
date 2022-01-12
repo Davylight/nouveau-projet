@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedTextgen2",
+						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -14,7 +14,7 @@
 			],
 			"sinks": [],
 			"transformations": [],
-			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1"
+			"script": "source(output(\n\t\tAge as string,\n\t\tSex as string,\n\t\tChestPainType as string,\n\t\tRestingBP as string,\n\t\tCholesterol as string,\n\t\tFastingBS as string,\n\t\tRestingECG as string,\n\t\tMaxHR as string,\n\t\tExerciseAngina as string,\n\t\tOldpeak as string,\n\t\tST_Slope as string,\n\t\tHeartDisease as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1"
 		}
 	}
 }
