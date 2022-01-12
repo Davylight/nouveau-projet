@@ -12,13 +12,21 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedTextgen2",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "Filtrer1"
 				}
 			],
-			"script": "source(output(\n\t\tAge as short,\n\t\tSex as string,\n\t\tCholesterol as short,\n\t\tRestingECG as string,\n\t\tOldpeak as double,\n\t\tHeartDisease as boolean\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 filter(Age>=40) ~> Filtrer1"
+			"script": "source(output(\n\t\tAge as short,\n\t\tSex as string,\n\t\tCholesterol as short,\n\t\tRestingECG as string,\n\t\tOldpeak as double,\n\t\tHeartDisease as boolean\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 filter(Age>=40) ~> Filtrer1\nFiltrer1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
 		}
 	}
 }
